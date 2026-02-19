@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bubble upp — Loyalty</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <img src="logo.png" class="logo" alt="Bubble upp" />
+        <div class="title">Bubble upp</div>
+      </div>
+      <div class="subtitle">Бонусная карта</div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="home">Карта</button>
+      <button class="tab" data-tab="wheel">Колесо</button>
+      <button class="tab" data-tab="menu">Меню</button>
+      <button class="tab" data-tab="profile">Профиль</button>
+    </nav>
+
+    <main class="content">
+      <section id="tab-home" class="panel active">
+        <div class="card">
+          <div class="balance">
+            <div class="label">Баланс</div>
+            <div class="value" id="balanceValue">—</div>
+          </div>
+          <div class="rules">
+            <div>Начисление: <b>5%</b></div>
+            <div>Списание: <b>до 30%</b></div>
+            <div>Сгорание: <b>60 дней</b></div>
+          </div>
+          <button class="btn" id="qrBtn">Мой QR</button>
+        </div>
+
+        <div class="card">
+          <div class="label">Активные подарки</div>
+          <div id="activePrizes" class="list muted">—</div>
+        </div>
+      </section>
+
+      <section id="tab-wheel" class="panel">
+        <div class="card">
+          <div class="label">Welcome Wheel</div>
+          <div class="muted" id="wheelHint">Доступно 1 раз после регистрации.</div>
+          <div class="wheelWrap">
+            <canvas id="wheel" width="320" height="320"></canvas>
+            <div class="pointer"></div>
+          </div>
+          <button class="btn" id="spinBtn">🎡 Крутить</button>
+          <div class="muted" id="spinStatus"></div>
+        </div>
+      </section>
+
+      <section id="tab-menu" class="panel">
+        <div class="card">
+          <div class="muted">Заказ через приложение пока недоступен. Ознакомьтесь с ассортиментом.</div>
+        </div>
+        <div id="menuCats" class="grid"></div>
+        <div id="menuItems" class="list"></div>
+      </section>
+
+      <section id="tab-profile" class="panel">
+        <div class="card">
+          <div class="row"><span class="muted">Имя</span><b id="pFirst">—</b></div>
+          <div class="row"><span class="muted">Фамилия</span><b id="pLast">—</b></div>
+          <div class="row"><span class="muted">Телефон</span><b id="pPhone">—</b></div>
+          <div class="row"><span class="muted">Дата рождения</span><b id="pBirth">—</b></div>
+          <div class="muted small">Редактирование даты рождения — через администратора.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- QR Modal -->
+  <div class="modal" id="qrModal">
+    <div class="modalCard">
+      <div class="modalTitle">Мой QR</div>
+      <canvas id="qrCanvas" width="240" height="240"></canvas>
+      <div class="muted small">Покажите кассиру</div>
+      <button class="btn" id="qrClose">Закрыть</button>
+    </div>
+  </div>
+
+  <!-- Win Modal -->
+  <div class="modal" id="winModal">
+    <div class="modalCard">
+      <div class="modalTitle">🎉 Ваш приз</div>
+      <div class="winTitle" id="winTitle">—</div>
+      <div class="muted small" id="winSub">—</div>
+      <button class="btn" id="winClose">Отлично</button>
+    </div>
+  </div>
+
+  <script src="qrcode.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

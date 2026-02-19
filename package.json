@@ -1,0 +1,17 @@
+{
+  "name": "bubbleupp-loyalty-mvp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "telegraf": "^4.16.3",
+    "sqlite3": "^5.1.7",
+    "uuid": "^9.0.1",
+    "dotenv": "^16.4.5"
+  }
+}
